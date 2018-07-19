@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Board : MonoBehaviour {
+public class Board : MonoBehaviour 
+{
 	public static float spacing = 2f;
 
 	public static readonly Vector2[] directions = {
@@ -11,4 +12,18 @@ public class Board : MonoBehaviour {
 		new Vector2(0f, spacing),
 		new Vector2(0f, -spacing)
 	};
+
+	List<Node> m_allNodes = new List<Node> ();
+	public List<Node> AllNodes { get { return m_allNodes; } }
+
+	void Awake()
+	{
+		GetNodeList ();
+	}
+
+	public void GetNodeList()
+	{
+		Node[] nList = GameObject.FindObjectOfType<Node> ();
+		m_allNodes = new List<Node> (nList);
+	}
 }
