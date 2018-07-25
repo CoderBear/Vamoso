@@ -14,11 +14,6 @@ public class Link : MonoBehaviour {
 
 	public iTween.EaseType easeType = iTween.EaseType.easeInOutExpo;
 
-	void Start()
-	{
-		DrawLink (new Vector3(4f, 0f, 4f), new Vector3(4f, 0f, 2f));
-	}
-
 	public void DrawLink(Vector3 startPos, Vector3 endPos)
 	{
 		transform.localScale = new Vector3 (lineThickness, 1f, 0f);
