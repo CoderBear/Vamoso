@@ -21,8 +21,6 @@ public class Node : MonoBehaviour
 	public float scaleTime = 0.3f;
 	public iTween.EaseType easeType = iTween.EaseType.easeInExpo;
 
-	public bool autoRun = false;
-
 	public float delay = 1f;
 
 	bool m_isInitialized = false;
@@ -41,11 +39,6 @@ public class Node : MonoBehaviour
 		if (geometry != null)
 		{
 			geometry.transform.localScale = Vector3.zero;
-
-			if (autoRun)
-			{
-				InitNode ();
-			}
 
 			if(m_board != null)
 			{
