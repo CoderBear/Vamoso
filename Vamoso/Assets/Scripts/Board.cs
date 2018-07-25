@@ -23,7 +23,7 @@ public class Board : MonoBehaviour
 
 	public void GetNodeList()
 	{
-		Node[] nList = GameObject.FindObjectOfType<Node> ();
+		Node[] nList = GameObject.FindObjectsOfType<Node> ();
 		m_allNodes = new List<Node> (nList);
 	}
 }

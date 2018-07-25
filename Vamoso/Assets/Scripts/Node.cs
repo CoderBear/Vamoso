@@ -20,6 +20,8 @@ public class Node : MonoBehaviour
 
 	public float delay = 1f;
 
+	bool m_isInitialized = false;
+
 	void Awake()
 	{
 		m_board = Object.FindObjectOfType<Board> ();
@@ -32,7 +34,7 @@ public class Node : MonoBehaviour
 			geometry.transform.localScale = Vector3.zero;
 
 			if (autoRun) {
-				ShowGeometry ();
+				InitNode ();
 			}
 
 			if(m_board != null)
@@ -68,5 +70,29 @@ public class Node : MonoBehaviour
 			}
 		}
 		return nList;
+	}
+
+	public void InitNode()
+	{
+		if (!m_isInitialized) {
+			ShowGeometry ();
+			InitNeighbors ();
+			m_isInitialized = true;
+		}
+	}
+
+	void InitNeighbors() 
+	{
+		StartCoroutine (InitNeighborsRoutine ());
+	}
+
+	IEnumerator InitNeighborsRoutine()
+	{
+		yield return new WaitForSeconds ((delay));
+
+		foreach(Node n in m_neighborNodes)
+		{
+			n.InitNode ();
+		}
 	}
 }
