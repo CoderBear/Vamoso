@@ -27,6 +27,8 @@ public class Node : MonoBehaviour
 
 	bool m_isInitialized = false;
 
+	public LayerMask obstacleLayer;
+
 	void Awake()
 	{
 		m_board = Object.FindObjectOfType<Board> ();
@@ -34,11 +36,14 @@ public class Node : MonoBehaviour
 	}
 
 	// Use this for initialization
-	void Start () {
-		if (geometry != null) {
+	void Start ()
+	{
+		if (geometry != null)
+		{
 			geometry.transform.localScale = Vector3.zero;
 
-			if (autoRun) {
+			if (autoRun)
+			{
 				InitNode ();
 			}
 
@@ -51,7 +56,8 @@ public class Node : MonoBehaviour
 
 	public void ShowGeometry()
 	{
-		if (geometry != null) {
+		if (geometry != null)
+		{
 			iTween.ScaleTo (geometry, iTween.Hash (
 				"time", scaleTime,
 				"scale", Vector3.one,
@@ -79,7 +85,8 @@ public class Node : MonoBehaviour
 
 	public void InitNode()
 	{
-		if (!m_isInitialized) {
+		if (!m_isInitialized)
+		{
 			ShowGeometry ();
 			InitNeighbors ();
 			m_isInitialized = true;
@@ -97,9 +104,15 @@ public class Node : MonoBehaviour
 
 		foreach(Node n in m_neighborNodes)
 		{
-			if (!m_linkedNodes.Contains (n)) {
-				LinkNode (n);
-				n.InitNode ();
+			if (!m_linkedNodes.Contains (n))
+			{
+				Obstacle obstacle = FindObstacle (n);
+
+				if (obstacle == null)
+				{
+					LinkNode (n);
+					n.InitNode ();
+				}
 			}
 		}
 	}
@@ -117,13 +130,28 @@ public class Node : MonoBehaviour
 				link.DrawLink (transform.position, targetNode.transform.position);
 			}
 
-			if (!m_linkedNodes.Contains (targetNode)) {
+			if (!m_linkedNodes.Contains (targetNode))
+			{
 				m_linkedNodes.Add (targetNode);
 			}
 
-			if (!targetNode.LinkedNodes.Contains(this)) {
+			if (!targetNode.LinkedNodes.Contains(this))
+			{
 				targetNode.LinkedNodes.Add (this);
 			}
 		}
+	}
+
+	Obstacle FindObstacle(Node targetNode)
+	{
+		Vector3 checkDirection = targetNode.transform.position - transform.position;
+		RaycastHit raycastHit;
+
+		if(Physics.Raycast(transform.position, checkDirection, out raycastHit, Board.spacing + 0.1f, obstacleLayer))
+		{
+			Debug.Log ("NODE FindObstacle: Hit an obstacle from " + this.name + " to " + targetNode.name);
+			return raycastHit.collider.GetComponent<Obstacle> ();
+		}
+		return null;
 	}
 }
