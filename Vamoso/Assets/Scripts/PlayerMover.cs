@@ -2,19 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMover : MonoBehaviour {
+public class PlayerMover : MonoBehaviour 
+{
 
+	// where the player is currently headed
 	public Vector3 destination;
+
+	// is the player currently moving?
 	public bool isMoving = false;
+
+	// what easetype to use for iTweening
 	public iTween.EaseType easeType = iTween.EaseType.easeInOutExpo;
 
+	// how fast we move
 	public float moveSpeed = 1.5f;
+
+	// delay to use before any call to iTween
 	public float iTweenDelay = 0f;
 
 	Board m_board;
 
 	// Use this for initialization
-	void Awake () {
+	void Awake ()
+	{
 		m_board = Object.FindObjectOfType<Board> ().GetComponent<Board> ();
 	}
 
@@ -34,7 +44,8 @@ public class PlayerMover : MonoBehaviour {
 		{
 			Node targetNode = m_board.FindNodeAt (destinationPos);
 
-			if (targetNode != null) {
+			if (targetNode != null  && m_board.PlayerNode.LinkedNodes.Contains (targetNode))
+			{
 				StartCoroutine (MoveRoutine (destinationPos, delayTime));
 			}
 		}

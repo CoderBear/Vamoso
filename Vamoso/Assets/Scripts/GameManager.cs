@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 	PlayerManager m_player;
 
 	bool m_hasLevelStarted = false;
-	public bool HasLevelSelected { get { return m_hasLevelStarted; } set { m_hasLevelStarted = value; } }
+	public bool HasLevelStarted { get { return m_hasLevelStarted; } set { m_hasLevelStarted = value; } }
 
 	bool m_isGamePlaying = false;
 	public bool IsGamePlaying { get { return m_isGamePlaying; } set { m_isGamePlaying = value; } }
@@ -49,16 +49,64 @@ public class GameManager : MonoBehaviour
 
 	IEnumerator StartLevelRoutine()
 	{
-		yield return null;
+		Debug.Log ("START LEVEL");
+		m_player.playerInput.InputEnabled = false;
+		while(m_hasLevelStarted)
+		{
+			// show start screen
+			// user presses button to start
+			// HasLevelStarted = true;
+			yield return null;
+		}
 	}
 
 	IEnumerator PlayLevelRoutine()
 	{
-		yield return null;
+		Debug.Log ("PLAY LEVEL");
+		m_isGamePlaying = true;
+		yield return new WaitForSeconds (delay);
+		m_player.playerInput.InputEnabled = true;
+
+		while(!m_isGameOver)
+		{
+			// check for Game Over condition
+
+			// win
+			// reach the end of the level
+
+			// lose
+			// player dies
+
+			// m_isGameOver = true;
+			yield return null;
+		}
 	}
 
 	IEnumerator EndLevelRoutine()
 	{
-		yield return null;
+		Debug.Log ("END LEVEL");
+		m_player.playerInput.InputEnabled = false;
+
+		// show end screen
+		while (!m_hasLevelFinished)
+		{
+			// user presses button to continue
+
+			// HasLevelFinished = true;
+			yield return null;
+		}
+
+		RestartLevel ();
+	}
+
+	void RestartLevel()
+	{
+		Scene scene = SceneManager.GetActiveScene ();
+		SceneManager.LoadScene (scene.name);
+	}
+
+	public void PlayLevel()
+	{
+		m_hasLevelStarted = true;
 	}
 }

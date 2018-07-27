@@ -17,7 +17,8 @@ public class PlayerManager : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if(playerMover.isMoving)
 		{
 			return;
@@ -27,19 +28,23 @@ public class PlayerManager : MonoBehaviour {
 
 		if(playerInput.V == 0)
 		{
-			if (playerInput.H < 0) {
+			if (playerInput.H < 0)
+			{
 				playerMover.MoveLeft ();
 			}
-			else if (playerInput.H > 0) {
+			else if (playerInput.H > 0)
+			{
 				playerMover.MoveRight ();
 			}
 		}
 		else if(playerInput.H == 0)
 		{
-			if (playerInput.V > 0) {
+			if (playerInput.V > 0)
+			{
 				playerMover.MoveForward ();
 			}
-			else if (playerInput.V < 0) {
+			else if (playerInput.V < 0)
+			{
 				playerMover.MoveBackward ();
 			}
 		}
