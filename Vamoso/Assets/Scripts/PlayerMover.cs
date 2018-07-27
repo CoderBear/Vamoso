@@ -24,7 +24,7 @@ public class PlayerMover : MonoBehaviour {
 
 		if(m_board != null && m_board.PlayerNode != null)
 		{
-			m_board.PlayerNode.InitNode ();
+			m_board.PlayerNode.InitNode (); 
 		}
 	}
 		
