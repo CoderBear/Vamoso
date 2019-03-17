@@ -19,11 +19,11 @@ public class Board : MonoBehaviour
 	Node m_playerNode = new Node ();
 	public Node PlayerNode { get { return m_playerNode; } }
 
-	PlayerMover m_player;
+	PlayerManager m_player;
 
 	void Awake()
 	{
-		m_player = Object.FindObjectOfType<PlayerMover> ().GetComponent<PlayerMover> ();
+		m_player = Object.FindObjectOfType<PlayerManager> ().GetComponent<PlayerManager> ();
 		GetNodeList ();
 	}
 
