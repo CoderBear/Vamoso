@@ -41,7 +41,7 @@ public class Board : MonoBehaviour
 
 	public Node FindPlayerNode()
 	{
-		if(m_player != null && !m_player.isMoving)
+		if(m_player != null && !m_player.playerMover.isMoving)
 		{
 			return FindNodeAt (m_player.transform.position);
 		}

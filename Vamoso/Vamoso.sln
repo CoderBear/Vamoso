@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vamoso", "Assembly-CSharp-firstpass.csproj", "{C53C57A3-67B0-4013-6375-94CA7BA2C32C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{C53C57A3-67B0-4013-6375-94CA7BA2C32C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vamoso", "Assembly-CSharp.csproj", "{325B3C92-23D8-8AAA-FC56-D784B113E576}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{325B3C92-23D8-8AAA-FC56-D784B113E576}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
