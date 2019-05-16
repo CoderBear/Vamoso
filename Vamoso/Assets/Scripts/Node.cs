@@ -27,6 +27,8 @@ public class Node : MonoBehaviour
 
 	public LayerMask obstacleLayer;
 
+	public bool isLevelGoal = false;
+
 	void Awake()
 	{
 		m_board = Object.FindObjectOfType<Board> ();
