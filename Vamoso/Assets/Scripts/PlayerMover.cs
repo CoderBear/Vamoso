@@ -22,10 +22,13 @@ public class PlayerMover : MonoBehaviour
 
 	Board m_board;
 
+	PlayerCompass m_playerCompass;
+
 	// Use this for initialization
 	void Awake ()
 	{
 		m_board = Object.FindObjectOfType<Board> ().GetComponent<Board> ();
+		m_playerCompass = FindObjectOfType<PlayerCompass>().GetComponent<PlayerCompass>();
 	}
 
 	void Start()
@@ -48,6 +51,11 @@ public class PlayerMover : MonoBehaviour
 
 	IEnumerator MoveRoutine(Vector3 destinationPos, float delayTime)
 	{
+		if(m_playerCompass != null)
+		{
+			m_playerCompass.ShowArrows(false);
+		}
+
 		isMoving = true;
 		destination = destinationPos;
 
@@ -71,6 +79,11 @@ public class PlayerMover : MonoBehaviour
 		isMoving = false;
 
 		UpdateBoard ();
+
+		if(m_playerCompass != null)
+		{
+			m_playerCompass.ShowArrows(true);
+		}
 	}
 
 	public void MoveLeft()
