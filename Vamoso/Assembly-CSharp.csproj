@@ -55,18 +55,25 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Board.cs" />
      <Compile Include="Assets\Scripts\EndScreen.cs" />
+     <Compile Include="Assets\Scripts\EnemyAttack.cs" />
+     <Compile Include="Assets\Scripts\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\EnemyMover.cs" />
+     <Compile Include="Assets\Scripts\EnemySensor.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GraphicMover.cs" />
      <Compile Include="Assets\Scripts\LevelLabel.cs" />
      <Compile Include="Assets\Scripts\Link.cs" />
+     <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
      <Compile Include="Assets\Scripts\Obstacle.cs" />
      <Compile Include="Assets\Scripts\PlayerCompass.cs" />
+     <Compile Include="Assets\Scripts\PlayerDeath.cs" />
      <Compile Include="Assets\Scripts\PlayerInput.cs" />
      <Compile Include="Assets\Scripts\PlayerManager.cs" />
      <Compile Include="Assets\Scripts\PlayerMover.cs" />
      <Compile Include="Assets\Scripts\ScreenFader.cs" />
      <Compile Include="Assets\Scripts\Spinner.cs" />
+     <Compile Include="Assets\Scripts\TurnManager.cs" />
      <Compile Include="Assets\Scripts\Utility.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/mac/Vamoso/Vamoso/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

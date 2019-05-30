@@ -1,16 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMover))]
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerManager : MonoBehaviour {
-
+[RequireComponent(typeof(PlayerDeath))]
+public class PlayerManager : TurnManager
+{
 	public PlayerMover playerMover;
 	public PlayerInput playerInput;
 
-	private void Awake()
+	public UnityEvent deathEvent;
+
+	protected override void Awake()
 	{
+		base.Awake();
+
 		playerMover = GetComponent<PlayerMover> ();
 		playerInput = GetComponent<PlayerInput> ();
 		playerInput.InputEnabled = true;
@@ -19,7 +25,7 @@ public class PlayerManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(playerMover.isMoving)
+		if(playerMover.isMoving || m_gameManager.CurrentTurn != Turn.Player)
 		{
 			return;
 		}
@@ -47,6 +53,14 @@ public class PlayerManager : MonoBehaviour {
 			{
 				playerMover.MoveBackward ();
 			}
+		}
+	}
+
+	public void Die()
+	{
+		if(deathEvent != null)
+		{
+			deathEvent.Invoke();
 		}
 	}
 }
