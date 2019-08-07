@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(EnemyMover))]
 [RequireComponent(typeof(EnemySensor))]
@@ -12,6 +13,11 @@ public class EnemyManager : TurnManager
     EnemyAttack m_enemyAttack;
 
     Board m_board;
+
+    bool m_isDead = false;
+    public bool IsDead { get { return m_isDead; } }
+
+    public UnityEvent deathEvent;
 
     protected override void Awake()
     {
@@ -26,6 +32,11 @@ public class EnemyManager : TurnManager
     // Start is called before the first frame update
     public void PlayTurn()
     {
+        if(m_isDead)
+        {
+            FinishTurn();
+            return;
+        }
         StartCoroutine(PlayTurnRoutine());
     }
 
@@ -34,7 +45,7 @@ public class EnemyManager : TurnManager
         if(m_gameManager != null && m_gameManager.IsGameOver)
         {
             // detect player
-            m_enemySensor.UpdateSensor();
+            m_enemySensor.UpdateSensor(m_enemyMover.CurrentNode);
 
             // wait
             yield return new WaitForSeconds(0f);
@@ -62,6 +73,21 @@ public class EnemyManager : TurnManager
                 //movement
                 m_enemyMover.MoveOneTurn();
             }
+        }
+    }
+
+    public void Die()
+    {
+        if(m_isDead)
+        {
+            return;
+        }
+
+        m_isDead = true;
+
+        if(deathEvent != null)
+        {
+            deathEvent.Invoke();
         }
     }
 }

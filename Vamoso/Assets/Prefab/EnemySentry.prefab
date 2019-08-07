@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7977584828357440907
+--- !u!1 &5032199933897619371
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,50 +8,50 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7977584828357667243}
-  - component: {fileID: 7977584828360534411}
-  - component: {fileID: 7977584828359437131}
-  - component: {fileID: 7977584828357538601}
-  - component: {fileID: 7977584828357538614}
-  - component: {fileID: 7977584828357538615}
-  - component: {fileID: 1509489706988533463}
-  - component: {fileID: 1628252510187011239}
+  - component: {fileID: 5032199933897321355}
+  - component: {fileID: 5032199933894454187}
+  - component: {fileID: 5032199933895420267}
+  - component: {fileID: 5032199933897715977}
+  - component: {fileID: 5032199933897715990}
+  - component: {fileID: 5032199933897715991}
+  - component: {fileID: 4580491687739307255}
+  - component: {fileID: 4466254749345906311}
   m_Layer: 0
-  m_Name: EnemyPatrol
+  m_Name: EnemySentry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7977584828357667243
+--- !u!4 &5032199933897321355
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: -2}
+  m_GameObject: {fileID: 5032199933897619371}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7977584828360534411
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!33 &5032199933894454187
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
+  m_GameObject: {fileID: 5032199933897619371}
   m_Mesh: {fileID: 4300000, guid: ef183d7f5535d4d669ac486ddfbd9e7a, type: 3}
---- !u!23 &7977584828359437131
+--- !u!23 &5032199933895420267
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
+  m_GameObject: {fileID: 5032199933897619371}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -64,7 +64,7 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: ef183d7f5535d4d669ac486ddfbd9e7a, type: 3}
   - {fileID: 2100002, guid: ef183d7f5535d4d669ac486ddfbd9e7a, type: 3}
-  - {fileID: 2100000, guid: 0adf6146422734c768218aa7d9a50424, type: 2}
+  - {fileID: 2100000, guid: 7cc2d3539efa946669795e45ea63aa37, type: 2}
   - {fileID: 2100006, guid: ef183d7f5535d4d669ac486ddfbd9e7a, type: 3}
   - {fileID: 2100008, guid: ef183d7f5535d4d669ac486ddfbd9e7a, type: 3}
   m_StaticBatchInfo:
@@ -86,13 +86,13 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7977584828357538601
+--- !u!114 &5032199933897715977
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
+  m_GameObject: {fileID: 5032199933897619371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fb6b3de549b74b50bec4b0729f19179, type: 3}
@@ -108,7 +108,7 @@ MonoBehaviour:
   finishMovementEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7977584828357538614}
+      - m_Target: {fileID: 5032199933897715990}
         m_MethodName: FinishTurn
         m_Mode: 1
         m_Arguments:
@@ -122,15 +122,15 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   directionToMove: {x: 0, y: 0, z: 2}
-  movementType: 1
+  movementType: 2
   standTime: 1
---- !u!114 &7977584828357538614
+--- !u!114 &5032199933897715990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
+  m_GameObject: {fileID: 5032199933897619371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba87587a6fd19436ca554c67c6c4196e, type: 3}
@@ -139,7 +139,7 @@ MonoBehaviour:
   deathEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1628252510187011239}
+      - m_Target: {fileID: 4466254749345906311}
         m_MethodName: Die
         m_Mode: 1
         m_Arguments:
@@ -152,38 +152,38 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &7977584828357538615
+--- !u!114 &5032199933897715991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
+  m_GameObject: {fileID: 5032199933897619371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48882443bf2a943aca1ab3d9e18b9f3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   directionToSearch: {x: 0, y: 0, z: 2}
---- !u!114 &1509489706988533463
+--- !u!114 &4580491687739307255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
+  m_GameObject: {fileID: 5032199933897619371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca4fa584aa9e47f69fe40d9c74ec5dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1628252510187011239
+--- !u!114 &4466254749345906311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7977584828357440907}
+  m_GameObject: {fileID: 5032199933897619371}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dae829d36a77548e8a8c11180dca2aa4, type: 3}
@@ -194,4 +194,4 @@ MonoBehaviour:
   offscreenDelay: 1
   iTweenDelay: 0
   easeType: 11
-  moveTime: 0.7
+  moveTime: 0.5
